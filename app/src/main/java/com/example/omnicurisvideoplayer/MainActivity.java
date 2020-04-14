@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         videoplayer=(VideoView)findViewById(R.id.video_view);
         videoplayer.setMediaController(mediaController);
+
         mediaController.setPrevNextListeners(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -64,18 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        super.onStart();/*
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            frameLayout.getLayoutParams().width=ViewGroup.LayoutParams.MATCH_PARENT;
-            frameLayout.getLayoutParams().height= ViewGroup.LayoutParams.MATCH_PARENT;
-            button.setVisibility(View.INVISIBLE);
+        super.onStart();
+        if(videoplayer.isPlaying())
+        {
+
         }
-        else {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            Toast.makeText(this, "T", Toast.LENGTH_SHORT).show();
-            button.setVisibility(View.VISIBLE);
-        }*/
+
 
     }
 
