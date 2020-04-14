@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         videoplayer=(VideoView)findViewById(R.id.video_view);
         videoplayer.setMediaController(mediaController);
-
         mediaController.setPrevNextListeners(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,12 +41,11 @@ public class MainActivity extends AppCompatActivity {
         });
         videoplayer.setMediaController(mediaController);
 
-        Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/videoplayer-e2171.appspot.com/o/videoplayback.mp4?alt=media&token=43440d17-ab65-4e04-b6fe-5923f8efde32");
+        Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/printart-db.appspot.com/o/videoplayback.mp4?alt=media&token=16c63dc2-8ad6-43cc-b31b-54e06a6d1c5d");
         videoplayer.setVideoURI(uri);
         videoplayer.start();
 
         }
-
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
@@ -59,19 +57,24 @@ public class MainActivity extends AppCompatActivity {
             button.setVisibility(View.INVISIBLE);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             ViewGroup.LayoutParams params =frameLayout.getLayoutParams();
-            params.height=600;
-            frameLayout.setLayoutParams(params);
+            params.height=300;
             button.setVisibility(View.VISIBLE);}
     }
 
     @Override
     protected void onStart() {
-        super.onStart();
-        if(videoplayer.isPlaying())
-        {
-
+        super.onStart();/*
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            frameLayout.getLayoutParams().width=ViewGroup.LayoutParams.MATCH_PARENT;
+            frameLayout.getLayoutParams().height= ViewGroup.LayoutParams.MATCH_PARENT;
+            button.setVisibility(View.INVISIBLE);
         }
-
+        else {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            Toast.makeText(this, "T", Toast.LENGTH_SHORT).show();
+            button.setVisibility(View.VISIBLE);
+        }*/
 
     }
 
