@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         videoplayer.setVideoURI(uri);
         videoplayer.start();
 
+
         }
 
     @Override
